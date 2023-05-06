@@ -3,7 +3,8 @@ import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import ProTip from "./components/ProTip";
-import SplashPage from "./pages/SplashPage";
+import Root from "./routes/root";
+import AuthProvider from "./providers/auth";
 
 export default function App() {
   return (
@@ -16,6 +17,8 @@ export default function App() {
     //     <Copyright />
     //   </Box>
     // </Container>
-    <SplashPage />
+    <AuthProvider>
+      <Root />
+    </AuthProvider>
   );
 }

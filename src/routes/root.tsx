@@ -1,13 +1,16 @@
 import { Button, Grid, TextField, Typography } from "@mui/material";
 import React from "react";
+import useAuth from "../hooks/use-auth";
+import { useNavigate } from "react-router-dom";
 
-const SplashPage = () => {
-  const [code, setCode] = React.useState("");
+const Root = () => {
+  const navigate = useNavigate();
+  let auth = useAuth();
 
   const handleClick = () => {
-    console.log(code);
-    if (code == "sewf") {
-      console.log("click");
+    console.log(auth.code);
+    if (auth.code == "sewf") {
+      navigate("/home");
     }
   };
 
@@ -48,7 +51,7 @@ const SplashPage = () => {
           variant="outlined"
           type="text"
           InputLabelProps={{ shrink: true }}
-          onChange={(e) => setCode(e.target.value)}
+          onChange={(e) => auth.signin(e.target.value, () => {})}
           onKeyDown={handleEnter}
         />
       </Grid>
@@ -61,4 +64,4 @@ const SplashPage = () => {
   );
 };
 
-export default SplashPage;
+export default Root;
