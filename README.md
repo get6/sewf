@@ -9,3 +9,13 @@ Provide informations about coalitions in 42 SEOUL
 - 람다 위에선 노드가 돌아가고 42 APIs 호출
 - 코알리숑별 본과정생 데이터를 모으면 연결된 저장소를 참조
 - 정적 사이트를 만들고 S3에 배포
+
+42 APIs 활용안
+1. OAuth2 Token 획득
+2. 42 SEOUL capmus_id 조회
+3. campus_id로 42 SEOUL의 bloc_id 조회 (코알리숑 그룹이라고 생각하면 됨)
+4. bloc_id를 통해 coalition_ids(건, 곤, 감, 리) 획득
+5. Cursus users 데이터를 page[number]=1 부터 마지막까지 조회
+6. Coalition users * 4 데이터를 page[number]=1 부터 마지막까지 조회
+7. 5번 6번 데이터를 조합해 필요한 데이터만 추출
+8. 가공된 데이터로 리액트에게 전달

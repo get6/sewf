@@ -148,37 +148,34 @@
     "colId": "870909ec-adf2-4dff-a968-7bb8860c8926",
     "containerId": "",
     "name": "Seoul Coalition Users",
-    "url": "{{base_url}}/v2/coalitions/{{gun_id}}/users?page[size]=100",
+    "url": "{{base_url}}/v2/coalitions/{{gun_id}}/users?sort=id&page[size]=100&page[number]=1&filter[staff?]=false",
     "method": "GET",
     "sortNum": 50000,
     "created": "2023-05-07T07:27:53.923Z",
-    "modified": "2023-05-07T07:29:16.016Z",
+    "modified": "2023-05-07T09:59:46.330Z",
     "headers": [],
     "params": [
+      {
+        "name": "sort",
+        "value": "id",
+        "isPath": false
+      },
       {
         "name": "page[size]",
         "value": "100",
         "isPath": false
+      },
+      {
+        "name": "page[number]",
+        "value": "1",
+        "isPath": false
+      },
+      {
+        "name": "filter[staff",
+        "value": "",
+        "isPath": false
       }
     ],
-    "auth": {
-      "type": "bearer",
-      "bearer": "{{token}}"
-    },
-    "tests": []
-  },
-  {
-    "_id": "1a037205-9312-4083-b588-1e5771bc4cb7",
-    "colId": "870909ec-adf2-4dff-a968-7bb8860c8926",
-    "containerId": "",
-    "name": "Seoul Coalition",
-    "url": "{{base_url}}/v2/coalitions/{{gun_id}}/",
-    "method": "GET",
-    "sortNum": 60000,
-    "created": "2023-05-07T07:33:08.172Z",
-    "modified": "2023-05-07T07:33:23.536Z",
-    "headers": [],
-    "params": [],
     "auth": {
       "type": "bearer",
       "bearer": "{{token}}"
@@ -190,21 +187,26 @@
     "colId": "870909ec-adf2-4dff-a968-7bb8860c8926",
     "containerId": "",
     "name": "Get Cursus users",
-    "url": "{{base_url}}/v2/cursus_users?sort[id]&filter[campus_id]={{campus_id}}&page[size]=100&page[number]=1",
+    "url": "{{base_url}}/v2/cursus_users?sort=id&filter[campus_id]={{campus_id}}&filter[has_coalition]=true&page[size]=100&page[number]=1",
     "method": "GET",
     "sortNum": 70000,
     "created": "2023-05-07T09:16:30.610Z",
-    "modified": "2023-05-07T09:25:48.702Z",
+    "modified": "2023-05-07T09:54:55.103Z",
     "headers": [],
     "params": [
       {
-        "name": "sort[id]",
-        "value": "",
+        "name": "sort",
+        "value": "id",
         "isPath": false
       },
       {
         "name": "filter[campus_id]",
         "value": "{{campus_id}}",
+        "isPath": false
+      },
+      {
+        "name": "filter[has_coalition]",
+        "value": "true",
         "isPath": false
       },
       {
