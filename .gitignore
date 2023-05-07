@@ -29,3 +29,4 @@ yarn-error.log*
 # custom
 # thunder-tests/
 .obsidian/
+.env
