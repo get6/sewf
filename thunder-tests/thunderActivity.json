@@ -1,0 +1,119 @@
+[
+  {
+    "_id": "b051b35d-fba8-42b0-95f4-b4f7e2f7d506",
+    "colId": "history",
+    "containerId": "",
+    "name": "{{base_url}}/users/103897",
+    "url": "{{base_url}}/users/103897",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-05-07T07:34:26.683Z",
+    "modified": "2023-05-07T07:34:26.683Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "752abfd4-01cd-410d-a231-843a82e91191",
+    "colId": "history",
+    "containerId": "",
+    "name": "{{base_url}}/v2//users/103897",
+    "url": "{{base_url}}/v2//users/103897",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-05-07T07:34:32.555Z",
+    "modified": "2023-05-07T07:34:32.555Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "771e722c-2d0f-4084-90de-4823a219261d",
+    "colId": "history",
+    "containerId": "",
+    "name": "{{base_url}}/v2/users/103897",
+    "url": "{{base_url}}/v2/users/103897",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-05-07T07:34:39.843Z",
+    "modified": "2023-05-07T07:34:39.843Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{token}}"
+    },
+    "tests": []
+  },
+  {
+    "_id": "3461794b-4e07-4d8a-8dcd-6dc4a9212d4e",
+    "colId": "history",
+    "containerId": "",
+    "name": "{{base_url}}/v2/cursus_users",
+    "url": "{{base_url}}/v2/cursus_users",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-05-07T09:14:46.779Z",
+    "modified": "2023-05-07T09:14:46.779Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{token}}"
+    },
+    "tests": []
+  },
+  {
+    "_id": "d470caf7-01e4-43bd-a85b-ac2861463d1f",
+    "colId": "history",
+    "containerId": "",
+    "name": "{{base_url}}/v2/cursus_users?filter[campus_id]={{campus_id}}",
+    "url": "{{base_url}}/v2/cursus_users?filter[campus_id]={{campus_id}}",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-05-07T09:15:14.072Z",
+    "modified": "2023-05-07T09:15:14.072Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "filter[campus_id]",
+        "value": "{{campus_id}}",
+        "isPath": false
+      }
+    ],
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{token}}"
+    },
+    "tests": []
+  },
+  {
+    "_id": "1caa0e2d-8fdc-4f50-9c57-019748a9ffcc",
+    "colId": "history",
+    "containerId": "",
+    "name": "{{base_url}}/v2/cursus_users?filter[campus_id]={{campus_id}}&page[size]=100",
+    "url": "{{base_url}}/v2/cursus_users?filter[campus_id]={{campus_id}}&page[size]=100",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-05-07T09:15:30.024Z",
+    "modified": "2023-05-07T09:15:30.024Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "filter[campus_id]",
+        "value": "{{campus_id}}",
+        "isPath": false
+      },
+      {
+        "name": "page[size]",
+        "value": "100",
+        "isPath": false
+      }
+    ],
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{token}}"
+    },
+    "tests": []
+  }
+]

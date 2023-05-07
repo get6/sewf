@@ -1,0 +1,52 @@
+[
+  {
+    "_id": "f55bce8f-1235-4614-8626-722dcf7dd8a1",
+    "name": "SEWF",
+    "default": true,
+    "sortNum": 10000,
+    "created": "2023-05-07T07:23:16.290Z",
+    "modified": "2023-05-07T07:23:16.290Z",
+    "data": [
+      {
+        "name": "base_url",
+        "value": "https://api.intra.42.fr"
+      },
+      {
+        "name": "UID",
+        "value": "u-s4t2ud-eec432a29a646fc47563bea84c7013cf484c9b008f6b95cdde6456284442a51f"
+      },
+      {
+        "name": "SECRET",
+        "value": "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"
+      },
+      {
+        "name": "token",
+        "value": "4adcfa079c467cb508a445435cfa3ad54d307561450e8ec8499124e19880dfb1"
+      },
+      {
+        "name": "campus_id",
+        "value": "29"
+      },
+      {
+        "name": "bloc_id",
+        "value": "27"
+      },
+      {
+        "name": "gun_id",
+        "value": "85"
+      },
+      {
+        "name": "gon_id",
+        "value": "86"
+      },
+      {
+        "name": "gam_id",
+        "value": "87"
+      },
+      {
+        "name": "lee_id",
+        "value": "88"
+      }
+    ]
+  }
+]

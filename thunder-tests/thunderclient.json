@@ -1,0 +1,227 @@
+[
+  {
+    "_id": "4d52fa6a-b57c-4f1c-87e4-a9d4ef057321",
+    "colId": "870909ec-adf2-4dff-a968-7bb8860c8926",
+    "containerId": "",
+    "name": "OAuth2 Token",
+    "url": "{{base_url}}/oauth/token",
+    "method": "POST",
+    "sortNum": 20000,
+    "created": "2023-05-07T07:23:04.588Z",
+    "modified": "2023-05-07T07:27:16.453Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "formdata",
+      "raw": "",
+      "form": [
+        {
+          "name": "grant_type",
+          "value": "client_credentials"
+        },
+        {
+          "name": "client_id",
+          "value": "{{UID}}"
+        },
+        {
+          "name": "client_secret",
+          "value": "{{SECRET}}"
+        }
+      ]
+    },
+    "tests": [
+      {
+        "type": "set-env-var",
+        "custom": "json.access_token",
+        "action": "setto",
+        "value": "{{token}}"
+      }
+    ]
+  },
+  {
+    "_id": "3f006231-a4cf-41a3-85c7-b5ef3e2d8188",
+    "colId": "870909ec-adf2-4dff-a968-7bb8860c8926",
+    "containerId": "",
+    "name": "Seoul campus",
+    "url": "https://api.intra.42.fr/v2/campus/{{campus_id}}",
+    "method": "GET",
+    "sortNum": 30000,
+    "created": "2023-05-07T07:23:04.590Z",
+    "modified": "2023-05-07T07:26:13.901Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{token}}"
+    },
+    "tests": [
+      {
+        "type": "set-env-var",
+        "custom": "json.id",
+        "action": "setto",
+        "value": "{{campus_id}}"
+      }
+    ]
+  },
+  {
+    "_id": "565f2c0f-5509-4233-968d-b04ef71ea7a3",
+    "colId": "870909ec-adf2-4dff-a968-7bb8860c8926",
+    "containerId": "",
+    "name": "Seoul Blocs",
+    "url": "https://api.intra.42.fr/v2/blocs?filter[campus_id]={{campus_id}}",
+    "method": "GET",
+    "sortNum": 40000,
+    "created": "2023-05-07T07:23:04.591Z",
+    "modified": "2023-05-07T07:26:30.395Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "filter[campus_id]",
+        "value": "{{campus_id}}",
+        "isPath": false
+      }
+    ],
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{token}}"
+    },
+    "tests": [
+      {
+        "type": "set-env-var",
+        "custom": "json.id",
+        "action": "setto",
+        "value": "{{bloc_id}}"
+      }
+    ]
+  },
+  {
+    "_id": "bd3249bb-f493-4b1f-a73d-e88c02e0454e",
+    "colId": "870909ec-adf2-4dff-a968-7bb8860c8926",
+    "containerId": "",
+    "name": "Seoul Bloc Coalitions",
+    "url": "{{base_url}}/v2/blocs/{{bloc_id}}/coalitions?sort=id",
+    "method": "GET",
+    "sortNum": 40000,
+    "created": "2023-05-07T07:23:04.592Z",
+    "modified": "2023-05-07T07:29:35.847Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "sort",
+        "value": "id",
+        "isPath": false
+      }
+    ],
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{token}}"
+    },
+    "tests": [
+      {
+        "type": "set-env-var",
+        "custom": "json[0].id",
+        "action": "setto",
+        "value": "{{gun_id}}"
+      },
+      {
+        "type": "set-env-var",
+        "custom": "json[1].id",
+        "action": "setto",
+        "value": "{{gon_id}}"
+      },
+      {
+        "type": "set-env-var",
+        "custom": "json[2].id",
+        "action": "setto",
+        "value": "{{gam_id}}"
+      },
+      {
+        "type": "set-env-var",
+        "custom": "json[3].id",
+        "action": "setto",
+        "value": "{{lee_id}}"
+      }
+    ]
+  },
+  {
+    "_id": "4e0bd8c5-5203-4008-a090-5d768b5e540c",
+    "colId": "870909ec-adf2-4dff-a968-7bb8860c8926",
+    "containerId": "",
+    "name": "Seoul Coalition Users",
+    "url": "{{base_url}}/v2/coalitions/{{gun_id}}/users?page[size]=100",
+    "method": "GET",
+    "sortNum": 50000,
+    "created": "2023-05-07T07:27:53.923Z",
+    "modified": "2023-05-07T07:29:16.016Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "page[size]",
+        "value": "100",
+        "isPath": false
+      }
+    ],
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{token}}"
+    },
+    "tests": []
+  },
+  {
+    "_id": "1a037205-9312-4083-b588-1e5771bc4cb7",
+    "colId": "870909ec-adf2-4dff-a968-7bb8860c8926",
+    "containerId": "",
+    "name": "Seoul Coalition",
+    "url": "{{base_url}}/v2/coalitions/{{gun_id}}/",
+    "method": "GET",
+    "sortNum": 60000,
+    "created": "2023-05-07T07:33:08.172Z",
+    "modified": "2023-05-07T07:33:23.536Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{token}}"
+    },
+    "tests": []
+  },
+  {
+    "_id": "f8cecb53-fcc0-4fab-a3b9-aac8374df1d2",
+    "colId": "870909ec-adf2-4dff-a968-7bb8860c8926",
+    "containerId": "",
+    "name": "Get Cursus users",
+    "url": "{{base_url}}/v2/cursus_users?sort[id]&filter[campus_id]={{campus_id}}&page[size]=100&page[number]=1",
+    "method": "GET",
+    "sortNum": 70000,
+    "created": "2023-05-07T09:16:30.610Z",
+    "modified": "2023-05-07T09:25:48.702Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "sort[id]",
+        "value": "",
+        "isPath": false
+      },
+      {
+        "name": "filter[campus_id]",
+        "value": "{{campus_id}}",
+        "isPath": false
+      },
+      {
+        "name": "page[size]",
+        "value": "100",
+        "isPath": false
+      },
+      {
+        "name": "page[number]",
+        "value": "1",
+        "isPath": false
+      }
+    ],
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{token}}"
+    },
+    "tests": []
+  }
+]
