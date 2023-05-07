@@ -282,5 +282,44 @@
         "value": "{{cursus_id}}"
       }
     ]
+  },
+  {
+    "_id": "f87a440d-3e91-4282-864b-9040c363f9dd",
+    "colId": "870909ec-adf2-4dff-a968-7bb8860c8926",
+    "containerId": "",
+    "name": "Simple Seoul Coalition Users",
+    "url": "{{base_url}}/v2/coalitions_users?sort=id&page[size]=100&page[number]=1&filter[coalition_id]={{gun_id}}",
+    "method": "GET",
+    "sortNum": 55000,
+    "created": "2023-05-07T12:15:29.113Z",
+    "modified": "2023-05-07T12:18:00.906Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "sort",
+        "value": "id",
+        "isPath": false
+      },
+      {
+        "name": "page[size]",
+        "value": "100",
+        "isPath": false
+      },
+      {
+        "name": "page[number]",
+        "value": "1",
+        "isPath": false
+      },
+      {
+        "name": "filter[coalition_id]",
+        "value": "{{gun_id}}",
+        "isPath": false
+      }
+    ],
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{token}}"
+    },
+    "tests": []
   }
 ]
