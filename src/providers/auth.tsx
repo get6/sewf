@@ -17,7 +17,7 @@ const fakeAuthProvider = {
 };
 
 const AuthProvider = ({ children }: { children: React.ReactNode }) => {
-  let [code, setCode] = useState<string | null>(null);
+  let [code, setCode] = useState<string>("");
 
   let signin = (code: string, callback: VoidFunction) => {
     return fakeAuthProvider.signin(() => {
@@ -28,7 +28,7 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
   let signout = (callback: VoidFunction) => {
     return fakeAuthProvider.signout(() => {
-      setCode(null);
+      setCode("");
       callback();
     });
   };

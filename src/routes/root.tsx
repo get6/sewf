@@ -7,10 +7,13 @@ const Root = () => {
   const navigate = useNavigate();
   let auth = useAuth();
 
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    auth.signin(e.target.value, handleClick);
+  };
+
   const handleClick = () => {
-    console.log(auth.code);
     if (auth.code == "sewf") {
-      navigate("/home");
+      navigate("home");
     }
   };
 
@@ -30,6 +33,7 @@ const Root = () => {
       sx={{
         // backgroudnImage: `url(${process.env.PUBLIC_URL}/main-korea.jpg)`,
         backgroundSize: "cover",
+        minHeight: "100vh",
       }}
     >
       <Grid
@@ -51,12 +55,12 @@ const Root = () => {
           variant="outlined"
           type="text"
           InputLabelProps={{ shrink: true }}
-          onChange={(e) => auth.signin(e.target.value, () => {})}
+          onChange={handleChange}
           onKeyDown={handleEnter}
         />
       </Grid>
       <Grid item xs={12} md={6}>
-        <Button variant="contained" onClick={handleClick}>
+        <Button variant="contained" onClick={handleClick} size="large">
           입장하기
         </Button>
       </Grid>

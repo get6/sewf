@@ -17,8 +17,6 @@ export default function App() {
     //     <Copyright />
     //   </Box>
     // </Container>
-    <AuthProvider>
-      <Root />
-    </AuthProvider>
+    <Root />
   );
 }

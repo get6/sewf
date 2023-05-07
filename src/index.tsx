@@ -6,6 +6,9 @@ import App from "./App";
 import theme from "./theme";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import ErrorPage from "./pages/error-page";
+import Home from "./routes/home";
+import LoadingPage from "./pages/loading-page";
+import AuthProvider from "./providers/auth";
 
 const rootElement = document.getElementById("root");
 const root = ReactDOM.createRoot(rootElement!);
@@ -15,6 +18,10 @@ const router = createBrowserRouter([
     element: <App />,
     errorElement: <ErrorPage />,
   },
+  {
+    path: "home",
+    element: <Home />,
+  },
 ]);
 
 root.render(
@@ -22,7 +29,9 @@ root.render(
     <ThemeProvider theme={theme}>
       {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
       <CssBaseline />
-      <RouterProvider router={router} />
+      <AuthProvider>
+        <RouterProvider router={router} fallbackElement={<LoadingPage />} />
+      </AuthProvider>
     </ThemeProvider>
   </React.StrictMode>
 );

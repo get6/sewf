@@ -1,12 +1,16 @@
 import React from "react";
 import useAuth from "../hooks/use-auth";
-import { redirect } from "react-router";
+import { Navigate } from "react-router-dom";
 
 const Home = () => {
   const user = useAuth();
-  if (!user) redirect("/");
+  if (user.code == "") return <Navigate to="/" replace />;
 
-  return <div></div>;
+  return (
+    <div>
+      <h1>Home</h1>
+    </div>
+  );
 };
 
 export default Home;
