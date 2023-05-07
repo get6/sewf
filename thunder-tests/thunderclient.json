@@ -42,14 +42,25 @@
     "_id": "3f006231-a4cf-41a3-85c7-b5ef3e2d8188",
     "colId": "870909ec-adf2-4dff-a968-7bb8860c8926",
     "containerId": "",
-    "name": "Seoul campus",
-    "url": "https://api.intra.42.fr/v2/campus/{{campus_id}}",
+    "name": "Find campus_id of 42 Seoul",
+    "url": "https://api.intra.42.fr/v2/campus?sort=id&filter[name]=Seoul",
     "method": "GET",
     "sortNum": 30000,
     "created": "2023-05-07T07:23:04.590Z",
-    "modified": "2023-05-07T07:26:13.901Z",
+    "modified": "2023-05-07T11:58:55.301Z",
     "headers": [],
-    "params": [],
+    "params": [
+      {
+        "name": "sort",
+        "value": "id",
+        "isPath": false
+      },
+      {
+        "name": "filter[name]",
+        "value": "Seoul",
+        "isPath": false
+      }
+    ],
     "auth": {
       "type": "bearer",
       "bearer": "{{token}}"
@@ -57,7 +68,7 @@
     "tests": [
       {
         "type": "set-env-var",
-        "custom": "json.id",
+        "custom": "json[0].id",
         "action": "setto",
         "value": "{{campus_id}}"
       }
@@ -67,7 +78,7 @@
     "_id": "565f2c0f-5509-4233-968d-b04ef71ea7a3",
     "colId": "870909ec-adf2-4dff-a968-7bb8860c8926",
     "containerId": "",
-    "name": "Seoul Blocs",
+    "name": "Get bloc_id of 42 Seoul",
     "url": "https://api.intra.42.fr/v2/blocs?filter[campus_id]={{campus_id}}",
     "method": "GET",
     "sortNum": 40000,
@@ -98,7 +109,7 @@
     "_id": "bd3249bb-f493-4b1f-a73d-e88c02e0454e",
     "colId": "870909ec-adf2-4dff-a968-7bb8860c8926",
     "containerId": "",
-    "name": "Seoul Bloc Coalitions",
+    "name": "Get id per coalition from bloc",
     "url": "{{base_url}}/v2/blocs/{{bloc_id}}/coalitions?sort=id",
     "method": "GET",
     "sortNum": 40000,
@@ -187,11 +198,11 @@
     "colId": "870909ec-adf2-4dff-a968-7bb8860c8926",
     "containerId": "",
     "name": "Get Cursus users",
-    "url": "{{base_url}}/v2/cursus_users?sort=id&filter[campus_id]={{campus_id}}&filter[has_coalition]=true&page[size]=100&page[number]=1",
+    "url": "{{base_url}}/v2/cursus/{{cursus_id}}/cursus_users?sort=id&filter[campus_id]={{campus_id}}&filter[has_coalition]=true&page[size]=100&page[number]=24",
     "method": "GET",
     "sortNum": 70000,
     "created": "2023-05-07T09:16:30.610Z",
-    "modified": "2023-05-07T09:54:55.103Z",
+    "modified": "2023-05-07T12:05:56.603Z",
     "headers": [],
     "params": [
       {
@@ -216,7 +227,7 @@
       },
       {
         "name": "page[number]",
-        "value": "1",
+        "value": "24",
         "isPath": false
       }
     ],
@@ -225,5 +236,51 @@
       "bearer": "{{token}}"
     },
     "tests": []
+  },
+  {
+    "_id": "d53f2fa7-de05-4e3a-bf87-be681a132858",
+    "colId": "870909ec-adf2-4dff-a968-7bb8860c8926",
+    "containerId": "",
+    "name": "Get 42 Cursus",
+    "url": "{{base_url}}/v2/cursus?sort=id&filter[kind]=main&page[size]=100&page[number]=1",
+    "method": "GET",
+    "sortNum": 60000,
+    "created": "2023-05-07T11:40:54.752Z",
+    "modified": "2023-05-07T11:59:22.873Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "sort",
+        "value": "id",
+        "isPath": false
+      },
+      {
+        "name": "filter[kind]",
+        "value": "main",
+        "isPath": false
+      },
+      {
+        "name": "page[size]",
+        "value": "100",
+        "isPath": false
+      },
+      {
+        "name": "page[number]",
+        "value": "1",
+        "isPath": false
+      }
+    ],
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{token}}"
+    },
+    "tests": [
+      {
+        "type": "set-env-var",
+        "custom": "json[0].id",
+        "action": "setto",
+        "value": "{{cursus_id}}"
+      }
+    ]
   }
 ]
